@@ -1,0 +1,26 @@
+{
+  "name": "dev-burger-api",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon",
+    "migrate": "sequelize-cli db:migrate --config src/config/database.cjs"
+  },
+  "author": {
+    "name": "Renan Silva Rodrigues",
+    "url": "https://www.linkedin.com/in/renan-silva-rodrigues/"
+  },
+  "license": "ISC",
+  "description": "DevBurger API",
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.2",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "sequelize-cli": "^6.6.3"
+  },
+  "type": "module"
+}
