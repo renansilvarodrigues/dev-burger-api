@@ -9,7 +9,7 @@ class ProductController {
     });
 
     try {
-      schema.validateSync(request.body, { abortEarly: false, strict: true });
+      schema.validateSync(request.body, { abortEarly: false });
     } catch (err) {
       return response
         .status(400)
