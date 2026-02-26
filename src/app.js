@@ -6,5 +6,6 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(routes);
+app.use('/product-file', fileRouteConfig);
 
 export default app;
