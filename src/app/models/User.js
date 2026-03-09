@@ -2,7 +2,7 @@ import Sequelize, { DataTypes, Model } from 'sequelize';
 
 class User extends Model {
   static init(sequelize) {
-    return Model.init(
+    return super.init(
       {
         id: {
           type: DataTypes.UUID,
