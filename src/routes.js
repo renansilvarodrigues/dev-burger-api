@@ -22,4 +22,11 @@ routes.post(
 );
 routes.get('/products', authMiddleware, ProductController.index);
 
+routes.post(
+  '/categories',
+  authMiddleware,
+  CategoryController.store,
+);
+routes.get('/categories', authMiddleware, CategoryController.index);
+
 export default routes;
