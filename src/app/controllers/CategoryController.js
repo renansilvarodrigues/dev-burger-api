@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import Product from '../models/Product.js';
+import Category from '../models/Category.js';
 
 class CategoryController {
   async store(request, response) {
@@ -17,14 +17,16 @@ class CategoryController {
 
     const { name } = request.body;
 
+    const existingCategory = await Category.findOne({ where: { name } });
+    if (existingCategory) {
+      return response.status(400).json({ error: 'Category already exists' });
+    }
+
     const newCategory = await Category.create({
       name,
-      price,
-      category,
-      image: filename,
     });
 
-    return response.status(201).json({newCategory});
+    return response.status(201).json(newCategory);
   }
 
   async index(_request, response) {

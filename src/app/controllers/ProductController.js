@@ -17,7 +17,7 @@ class ProductController {
         .json({ error: 'Validation failed', details: err.errors });
     }
 
-    const { name, price, category } = req.body;
+    const { name, price, category } = request.body;
     const { filename } = request.file;
 
     const newProduct = await Product.create({
@@ -27,7 +27,7 @@ class ProductController {
       image: filename,
     });
 
-    return res.json({ message: 'ok' });
+    return response.json({ message: 'ok' });
   }
 
   async index(_request, response) {
