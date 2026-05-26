@@ -17,13 +17,13 @@ routes.post('/sessions', SessionController.store);
 routes.use(authMiddleware);
 routes.post(
   '/products',
-  authMiddleware,
+  adminMiddleware,
   upload.single('file'),
   ProductController.store,
 );
 routes.get('/products', authMiddleware, ProductController.index);
 
-routes.post('/categories', authMiddleware, CategoryController.store);
+routes.post('/categories', adminMiddleware, CategoryController.store);
 routes.get('/categories', authMiddleware, CategoryController.index);
 
 export default routes;

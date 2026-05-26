@@ -15,6 +15,7 @@ class CategoryController {
         .json({ error: 'Validation failed', details: err.errors });
     }
 
+
     const { name } = request.body;
 
     const existingCategory = await Category.findOne({ where: { name } });
