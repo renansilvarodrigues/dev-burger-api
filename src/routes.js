@@ -6,6 +6,7 @@ import CategoryController from './app/controllers/CategoryController.js';
 import multer from 'multer';
 import multerConfig from './config/multer.cjs';
 import authMiddleware from './middlewares/auth.js';
+import adminMiddleware from './middlewares/admin.js';
 
 const routes = new Router();
 
@@ -21,6 +22,14 @@ routes.post(
   upload.single('file'),
   ProductController.store,
 );
+
+routes.put(
+  '/products/:id',
+  adminMiddleware,
+  upload.single('file'),
+  ProductController.update,
+);
+
 routes.get('/products', authMiddleware, ProductController.index);
 
 routes.post('/categories', adminMiddleware, CategoryController.store);
