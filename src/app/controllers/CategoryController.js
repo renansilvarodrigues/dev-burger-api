@@ -15,16 +15,19 @@ class CategoryController {
         .json({ error: 'Validation failed', details: err.errors });
     }
 
-
     const { name } = request.body;
+    const { filename } = request.file;
 
-    const existingCategory = await Category.findOne({ where: { name } });
+    const existingCategory = await Category.findOne({
+      where: { name },
+    });
     if (existingCategory) {
       return response.status(400).json({ error: 'Category already exists' });
     }
 
     const newCategory = await Category.create({
       name,
+      path: filename,
     });
 
     return response.status(201).json(newCategory);

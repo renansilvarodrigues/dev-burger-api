@@ -32,7 +32,7 @@ routes.put(
 
 routes.get('/products', authMiddleware, ProductController.index);
 
-routes.post('/categories', adminMiddleware, CategoryController.store);
+routes.post('/categories', adminMiddleware, upload.single('file'), CategoryController.store);
 routes.get('/categories', authMiddleware, CategoryController.index);
 
 export default routes;
